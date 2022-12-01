@@ -1,5 +1,5 @@
 {
-    "version":"0.1.3",
+    "version":"0.1.6",
     "license":"MIT",
     "main":"dist/index.js",
     "typings":"dist/index.d.ts",
@@ -14,6 +14,12 @@
         "type": "git",
         "url": "https://github.com/rajatbhatia1998/react-element-transitions.git"
       },
+      "keywords": [
+        "react",
+        "animations",
+        "transitions",
+        "component animations"
+      ],
     "scripts":{
        "start":"tsdx watch",
        "build":"tsdx build",

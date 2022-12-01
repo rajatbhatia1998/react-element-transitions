@@ -6,14 +6,40 @@ A custom component that can be used to add pre-defined transitions or animations
 ### Usage
 You can import each animation directly from the main package
 
-```bash
+```Javascript
 import { Transit } from 'react-element-transitions'
 ```
 
 
 ### Using Animations
-```bash
+```Javascript
 <Transit name="FADE">
   <button>Animated Button</button>
 </Transit>
 ```
+
+
+## Animations List
+Below are the list for available animations 
+
+`
+FADE
+`
+
+`
+SLIDE-RIGHT
+`
+
+`
+SLIDE-BOTTOM
+`
+
+`
+SLIDE-LEFT
+`
+
+`
+SLIDE-TOP
+`
+
+
