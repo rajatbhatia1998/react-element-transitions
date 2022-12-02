@@ -27,6 +27,10 @@ FADE
 `
 
 `
+BOUNCE
+`
+
+`
 SLIDE-RIGHT
 `
 
@@ -42,4 +46,10 @@ SLIDE-LEFT
 SLIDE-TOP
 `
 
+`
+ROTATE-LEFT
+`
 
+`
+ROTATE-RIGHT
+`

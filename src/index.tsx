@@ -1,17 +1,20 @@
 import * as React from 'react';
+import { Constants } from './custom/Constants';
 import {getKeyFrameName} from './custom/Keyframes'
 
-
+ const CONSTANT = new Constants();
 
 export interface Transit {
-   name: "FADE" | "SLIDE-RIGHT" | "SLIDE-LEFT" | "SLIDE-TOP" | "SLIDE-BOTTOM" | "ROTATE" ;
-   duration?:String,
-   children:JSX.Element
+   name: "FADE" | "SLIDE-RIGHT" | "SLIDE-LEFT" | "SLIDE-TOP" | "SLIDE-BOTTOM" | "ROTATE-RIGHT"| "ROTATE-LEFT" | "BOUNCE" ;
+   duration?:string,
+   children:JSX.Element,
+   interationCount?:number,
+   timing ?:'ease' | 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out' 
 };
 
 
  export const Transit:React.FunctionComponent<Transit> = props => {
-    const {children ,name,duration} = props;
+   const {children , name, duration , interationCount, timing} = props;
    
       const [currentStyle,setCurrentStyle] = React.useState({
          animationName: "",
@@ -23,27 +26,25 @@ export interface Transit {
          animationFillMode: ''
       })
    
-    React.useEffect(()=>{
-      let styleSheet = document.styleSheets[0];
- 
-      let animationName = `${name}${Math.round(Math.random() * 100)}`;
+      React.useEffect(()=>{
+         let styleSheet = document.styleSheets[0];
+    
+         let animationName = `${name}${Math.round(Math.random() * 100)}`;
+         
+         let keyframes = getKeyFrameName(animationName,name);
       
-      let keyframes = getKeyFrameName(animationName,name);
+         styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+      
+         let newStyle = CONSTANT.getAnimationStyles(
+            animationName,
+            (duration?duration:'1s'),
+            name,
+            (interationCount?interationCount:1),
+            (timing ? timing : 'easi-in-out')
+            )
    
-      styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-      console.log(animationName);
-     
-      let tempAniName = animationName;
-      setCurrentStyle({
-         animationName: tempAniName,
-         animationTimingFunction: 'ease-in-out',
-         animationDuration: duration?`${duration}s`:"3s",
-         animationDelay: '0.0s',
-         animationIterationCount: 1,
-         animationDirection: 'normal',
-         animationFillMode: 'forwards'
-      })
-    },[])
+         setCurrentStyle(newStyle);
+       },[])
 
 
 
