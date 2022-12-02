@@ -13,11 +13,20 @@ import { Transit } from 'react-element-transitions'
 
 ### Using Animations
 ```Javascript
-<Transit name="FADE">
+<Transit name="BOUNCE" interationCount={10} duration={'0.5'} timing={'linear'} >
   <button>Animated Button</button>
 </Transit>
 ```
 
+
+## `Transit` - props 
+
+| Attribute  | Type | Default | Description | Example |
+| ------------- |:-------------:|:-------------:|:-------------:| :-------------:|
+| name      | string | NA  | Name of the animation type | Check Animation list
+| duration  | string | "1"  | Duration of the single animation frame   | "1" to "1000"
+| timing    | string | "ease-in-out"| Timing function of animation |linear ,ease ,ease-in, ease-out, ease-in-out
+| interationCount  | number | 1  | Number of times animation will repeat   | 1 to 1000
 
 ## Animations List
 Below are the list for available animations 
