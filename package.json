@@ -1,5 +1,5 @@
 {
-    "version":"0.1.10",
+    "version":"0.1.11",
     "license":"MIT",
     "main":"dist/index.js",
     "typings":"dist/index.d.ts",
@@ -10,6 +10,7 @@
     "engines":{
        "node":">=10"
     },
+    "homepage": "https://react-element-transitions.gitbook.io/api-docs/",
     "repository": {
         "type": "git",
         "url": "https://github.com/rajatbhatia1998/react-element-transitions.git"
