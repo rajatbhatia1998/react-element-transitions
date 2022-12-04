@@ -16,21 +16,47 @@ const getBounceKeyFrame = (name: String) => {
 
     }`
 }
+const getWiggleKeyframe = (name: String) => {
+    return `@-webkit-keyframes ${name} {
+        0%, 7% {
+            transform: rotateZ(0);
+          }
+          15% {
+            transform: rotateZ(-15deg);
+          }
+          20% {
+            transform: rotateZ(10deg);
+          }
+          25% {
+            transform: rotateZ(-10deg);
+          }
+          30% {
+            transform: rotateZ(6deg);
+          }
+          35% {
+            transform: rotateZ(-4deg);
+          }
+          40%, 100% {
+            transform: rotateZ(0);
+          }
+
+    }`
+}
 const getRotateKeyframes = (rotateType: String,name:String) => {
     let keyframe = ""
     if(rotateType===CONSTANT.ROTATE_LEFT){
        keyframe =  `@-webkit-keyframes ${name} {
-        0 {
-            transform: rotate(360deg);
+        0% {
+            transform: rotate(-360deg);
           }
           100% {
-            transform: rotate(0deg);
+            transform: rotate(-720deg);
           }
     
         }`
     }else if(rotateType===CONSTANT.ROTATE_RIGHT){
         keyframe =  `@-webkit-keyframes ${name} {
-            0 {
+            0% {
                 transform: rotate(0deg);
               }
               100% {
@@ -84,6 +110,7 @@ const getSlideKeyframe = (slideType: String,name:String) =>{
 
 function getKeyFrameName(name: string, type: String): string {
     let keyframe = "";
+ 
     if (type === CONSTANT.FADE) {
         keyframe = getFadeKeyframe(name)
     }
@@ -108,7 +135,11 @@ function getKeyFrameName(name: string, type: String): string {
     if(type === CONSTANT.BOUNCE){
         keyframe = getBounceKeyFrame(name)
     }
+    if(type === CONSTANT.WIGGLE){
+        keyframe = getWiggleKeyframe(name)
+    }
     return keyframe
+    
 }
 
 

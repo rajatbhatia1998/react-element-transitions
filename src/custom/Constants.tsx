@@ -7,7 +7,7 @@ export class Constants {
     public readonly SLIDE_TOP = "SLIDE-TOP";
     public readonly SLIDE_BOTTOM = "SLIDE-BOTTOM";
     public readonly BOUNCE = "BOUNCE";
-
+    public readonly WIGGLE = "WIGGLE";
     public getAnimationNames(){
         return {
             FADE:this.FADE,
@@ -16,7 +16,8 @@ export class Constants {
             SLIDE_TOP:this.SLIDE_TOP,
             SLIDE_BOTTOM:this.SLIDE_BOTTOM,
             ROTATE_LEFT:this.ROTATE_LEFT,
-            BOUNCE:this.BOUNCE
+            BOUNCE:this.BOUNCE,
+            WIGGLE:this.WIGGLE
         }
     }
     public getAnimationStyles(tempAniName:string,duration:string,name:String,iterCount:number,timing:string){
@@ -34,7 +35,10 @@ export class Constants {
             style.animationDirection = "alternate";  
             style.animationTimingFunction = 'linear'
         }
-
+        if(name===this.WIGGLE){
+            style.animationTimingFunction = 'linear'
+            style.animationIterationCount = 100;
+        }
         return style
     }
   }
